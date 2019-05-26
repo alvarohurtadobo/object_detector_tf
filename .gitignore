@@ -1,0 +1,6 @@
+__pycache__/*
+lib/ssd/__pycache__/*
+lib/ssd/ssd_processor/__pycache__/*
+lib/ssd/ssd_processor/object_detection/__pycache__/*
+lib/ssd/ssd_processor/object_detection/core/__pycache__/*
+lib/ssd/ssd_processor/object_detection/protos/__pycache__/*
