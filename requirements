@@ -1,0 +1,4 @@
+click
+tensorflow==1.3
+Pillow
+matplotlib

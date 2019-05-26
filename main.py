@@ -1,9 +1,13 @@
-import cv2 # For webcam
-import sys
 import os
+import sys
 import pprint
+import argparse
+import cv2 # For webcam
 from lib.ssd.ssd_processor import SSDProcessor
 
+parser = argparse.ArgumentParser(description="Some imput configuration")
+parser.add_argument('-i', '--input', type = str, default = '/home/stanlee321/dwhelper/out.mp4', help ="Introduce the path to the output file")
+args = parser.parse_args()
 
 pp = pprint.PrettyPrinter(indent=4)
 
@@ -20,7 +24,7 @@ min_score_thresh = 0.64
 # draw detections
 draw_box = True
 
-src = '/home/stanlee321/dwhelper/out.mp4'
+src = args.input
 
 camera = cv2.VideoCapture(src) # For custom video input, replace this 0 with a string with the 'name of your video.mp4'
 

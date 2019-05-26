@@ -2,6 +2,11 @@
 
 This detects cars like classes using tensorflow lib
 
+# Requirements
+- Click-7.0
+- Tensorflow
+- Pillow-6.0
+
 # How to use it
 Example of how to use it is below:
 
