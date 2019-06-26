@@ -6,13 +6,20 @@ import cv2 # For webcam
 from lib.ssd.ssd_processor import SSDProcessor
 
 parser = argparse.ArgumentParser(description="Some imput configuration")
-parser.add_argument('-i', '--input', type = str, default = '/home/stanlee321/dwhelper/out.mp4', help ="Introduce the path to the output file")
+parser.add_argument('-i', '--input',        type = str,   default = '/home/stanlee321/dwhelper/out.mp4', help ="Introduce the path to the output file")
+parser.add_argument('-W', '--width',        type = int,   default = 640, help = 'Set the desired width')
+parser.add_argument('-H', '--height',       type = int,   default = 480, help = 'Set the desired height')
+parser.add_argument('-s', '--show',         type = bool,  default = True, help = 'Display image?')
+parser.add_argument('-d', '--draw',         type = bool,  default = True, help = 'Draw boxes?')
+parser.add_argument('-t', '--threshold',    type = float, default = True, help = 'Desider detection Thredshold')
 args = parser.parse_args()
 
 pp = pprint.PrettyPrinter(indent=4)
 
-IM_WIDTH = 640
-IM_HEIGHT = 480
+src = args.input
+IM_WIDTH = parser.width
+IM_HEIGHT = parser.height
+draw_box = parser.draw
 
 # Instantiate detector
 detect = SSDProcessor()
@@ -21,10 +28,6 @@ detect.setup()
 # Set minimun prob to detect
 min_score_thresh = 0.64
 
-# draw detections
-draw_box = True
-
-src = args.input
 
 camera = cv2.VideoCapture(src) # For custom video input, replace this 0 with a string with the 'name of your video.mp4'
 
